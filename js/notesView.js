@@ -12,7 +12,8 @@ export default class notesView {
         </div>
     </div>
     <hr>
-    <div class="notes-view">
+    <div class="notes-view xxx">
+        <a href="/" class='notes-view-back'><i class="fa fa-arrow-left" style="font-size:36px"></i></a>
         <input class="notes-view-title" type="text" placeholder="Enter a title...">
         <textarea class="notes-view-body">This is note no.1</textarea>
     </div>
@@ -40,7 +41,7 @@ export default class notesView {
         })
     });
 
-    this.updateNotesViewVisibility(false)
+    //this.updateNotesViewVisibility(1)
     //console.log(this.createListItemHTML(69,"makTosaya","I need you",new Date()))
 
   }
@@ -49,7 +50,8 @@ export default class notesView {
   createListItemHTML(id,title,body,updated){
       const MAX_BODY_LENGTH = 50;
       return `
-      <div class="notes-list-item selected" data-note-id="${id}">
+      <div class="notes-list-item " data-note-id="${id}">
+          <button class='notes-close' data-note-id="${id}"><i class="fa fa-close" style="font-size:15px"></i></button>
           <div class="notes-title">${title}</div>
           <div class="notes-body">
           ${body.substring(0,MAX_BODY_LENGTH)}
@@ -68,18 +70,21 @@ export default class notesView {
         const html=this.createListItemHTML(note.id,note.title,note.body,new Date(note.updated))
         notesListContainer.insertAdjacentHTML('beforeend',html)
     })
-    notesListContainer.querySelectorAll('.notes-list-item').forEach(noteX=>{
+    
+      notesListContainer.querySelectorAll('.notes-list-item').forEach(noteX=>{
         noteX.addEventListener('click',()=>{
             this.onNoteSelect(noteX.dataset.noteId)
         })
-        noteX.addEventListener('dblclick',()=>{
-            const doDelete = confirm('DO U WANNA DELETE THIS NOTE ?')
-            if(doDelete){
-                this.onNoteDelete(noteX.dataset.noteId)
-            }
+    })
+    this.root.querySelectorAll('.notes-close').forEach(noteY=>{
+        noteY.addEventListener('click',()=>{
+            const wantDelete = confirm('DO YOU REALLY WANT TO DELETE ?')
+            if(wantDelete)
+            this.onNoteDelete(noteY.dataset.noteId)
             
         })
     })
+    
   }
 
   updateActiveNote(note){
@@ -87,14 +92,18 @@ export default class notesView {
       this.root.querySelector('.notes-view-title').value = note.title
       this.root.querySelector('.notes-view-body').value = note.body
      // console.log(this.root.querySelector('.notes-view-title').value,note.title)
-      
+     this.root.querySelector('.notes-sidebar').classList.add('xxx')
+     this.root.querySelector('.notes-view').classList.remove('xxx')
+     //this.root.querySelector('.notes-view').classList.add('xyz')
 
           this.root.querySelectorAll('.notes-list-item').forEach(noteX=>{
               noteX.classList.remove('selected')
           })
         
        this.root.querySelector(`.notes-list-item[data-note-id="${note.id}"]`).classList.add('selected')
-    //console.log(note.id,this.root.querySelector(`.notes-list-item[data-note-id="${note.id}"]`).classList)
+       //this.root.querySelector('.notes-sidebar').classList.add('xxx')
+    //    this.root.querySelector('.notes-view').classList.add('xyz')
+    // //console.log(note.id,this.root.querySelector(`.notes-list-item[data-note-id="${note.id}"]`).classList)
   }
 
   updateNotesViewVisibility(visible){

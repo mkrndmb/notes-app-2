@@ -1,4 +1,4 @@
- import notesAPI from './notesAPI.js'
+//import notesAPI from './notesAPI.js'
 // import notesView from './notesView.js'
 import App from './App.js'
 

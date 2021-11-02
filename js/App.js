@@ -15,14 +15,14 @@ export default class App {
       this._setNotes(notes)
 
       if(notes.length > 0){
-          this._setActiveNote(notes[0])
+          //this._setActiveNote(notes[0])
       }
   }
 
   _setNotes(notes){
       this.notes = notes
       this.view.updateNoteList(notes)
-      this.view.updateNotesViewVisibility(notes.length > 0)
+      this.view.updateNotesViewVisibility(0)
   }
 
   _setActiveNote(note){
@@ -37,6 +37,7 @@ export default class App {
         //console.log(this.notes)
          const selected = this.notes.find(note=>note.id == id)
          this._setActiveNote(selected)
+         this.view.updateNotesViewVisibility(1)
         console.log("note selected");
       },
       onNoteAdd: () => {
@@ -55,7 +56,7 @@ export default class App {
             title,
             body
         })
-        this._refreshNotes()
+        //this._refreshNotes()
         console.log(title, body);
       },
       onNoteDelete: (id) => {

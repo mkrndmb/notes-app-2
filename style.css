@@ -14,7 +14,7 @@ font-family: 'Zen Maru Gothic', sans-serif;
 .notes-sidebar{
     /* background: steelblue; */
     height: 100vh;
-    width : 25vw;
+    width : 26vw;
     padding: 10px;
     display: flex;   
     flex-direction: column;
@@ -22,14 +22,14 @@ font-family: 'Zen Maru Gothic', sans-serif;
 .notes-view{
     /* background: cyan; */
     height: 100vh;
-    width : 75vw;
+    width : 70vw;
     padding: 10px;
     display: flex;   
     flex-direction: column;
 }
 .notes-add{
     border: none;
-    padding-top: 0px;
+    padding: 7px;
     border-radius: 10px;
     height: 40px;
     background-color:rgb(93, 57, 122) ;
@@ -38,13 +38,13 @@ font-family: 'Zen Maru Gothic', sans-serif;
     cursor: pointer;
     
 }
-.notes-list{
+/* .notes-list{
        
-}
+} */
 .notes-list-item{
     margin-top: 10px;
     padding: 8px;
-    height: 14vh;
+    height: 16vh;
     background: rgb(241, 236, 236);
     border-radius: 5px;
     display: flex;
@@ -56,6 +56,7 @@ font-family: 'Zen Maru Gothic', sans-serif;
     background:  rgb(209, 204, 204);
 }
 .notes-title{
+    position: absolute;
     margin-top: -6px;
     font-size: larger;
     font-weight: bolder;
@@ -69,14 +70,14 @@ font-family: 'Zen Maru Gothic', sans-serif;
     font-size: small;
     font-weight: lighter;
     font-style: italic;
-    margin-left: 105px;
+    margin-left: 90px;
     opacity: 0.7;
 }
 
-.notes-view{
+/* .notes-view{
     display: flex;
     flex-direction: column;
-}
+} */
 .notes-view-title{
     margin: 30px;
     width: 50vw;
@@ -93,5 +94,57 @@ textarea{
     font-size: larger;
     outline: none;
 }
+a{
+    margin-left: 30px;
+}
 hr{
 height: 95vh;}
+
+
+@media only screen and (max-width: 600px) {
+   
+  hr{
+      display: none;
+  }
+  .notes-sidebar{
+      margin-left: -15px;
+    width : 100vw
+  }
+  .notes-view{
+      padding-left: 0px;
+  }
+  .notes-view-body,.notes-view-title{
+      width: 78vw;
+  }
+  .xyz{
+    visibility: visible;
+    }
+.notes-updated{
+       margin-left: 70px;
+    }
+.notes-list-item{
+  height: 16vh;
+}
+.notes-close{
+}    
+
+
+}
+
+
+.xxx{
+    display: none;
+}
+.xyz{
+    visibility: visible;
+}
+
+.notes-close{
+    
+    margin-left: 300px;
+    height: 18px;
+    width: 18px;
+    padding: 0px;
+    border: none;
+    color: rgb(226, 63, 63);
+}
