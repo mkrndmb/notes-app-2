@@ -22,6 +22,7 @@ export default class notesView {
     const addButton = this.root.querySelector('.notes-add') //document.querySelector pan chaltay ethe..
     const inputTitle = this.root.querySelector('.notes-view-title')
     const inputBody = this.root.querySelector('.notes-view-body')
+    //const back = this.root.querySelector('.notes-view-back')
 
     addButton.addEventListener('click',()=>{
         this.onNoteAdd();
@@ -41,6 +42,13 @@ export default class notesView {
         })
     });
 
+    // back.addEventListener('click',()=>{
+    //     this.root.querySelector('.notes-sidebar').classList.remove('xxx')
+    // this.root.querySelector('.notes-view').classList.add('xxx')
+        
+    //     const notes = notesAPI.getAllNotes()
+    //     console.log('view go back',notes)
+    // })
     //this.updateNotesViewVisibility(1)
     //console.log(this.createListItemHTML(69,"makTosaya","I need you",new Date()))
 

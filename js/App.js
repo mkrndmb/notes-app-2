@@ -5,7 +5,7 @@ export default class App {
   constructor(root) {
     this.notes = [];
     this.activeNote = null;
-    this.view = new notesView(root, this._handlers());
+    this.view = new notesView(root,this._handlers());
 
     this._refreshNotes()
   }
@@ -64,6 +64,7 @@ export default class App {
           this._refreshNotes()
         console.log("note deleted..", id);
       },
+      
     };
   }
 }

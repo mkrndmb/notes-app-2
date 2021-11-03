@@ -119,21 +119,22 @@ height: 95vh;}
   .xyz{
     visibility: visible;
     }
+    .xxx{
+        display: none;
+    }
 .notes-updated{
        margin-left: 70px;
     }
 .notes-list-item{
   height: 16vh;
 }
-.notes-close{
-}    
 
 
 }
 
 
 .xxx{
-    display: none;
+    /* display: none; */
 }
 .xyz{
     visibility: visible;
