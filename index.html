@@ -3,8 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type='image/png' href="icons8-notes-app-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Notes app vanilla JS"/>
+    <link rel="apple-touch-icon" href="icons8-notes-app-192.png" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Notes App</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +21,18 @@
 <body>
     <div class="notes" id="app">
     </div>
-    <script src="./js/main.js" type="module"></script>
+    <script src="./js/main.js" type="module">
+    </script>
+    <script>
+    if('serviceWorker' in navigator){
+            window.addEventListener('load',()=>{
+              navigator.serviceWorker.register('./serviceworker.js')
+              .then((reg)=>console.log('Success',reg.scope))
+              .catch((err)=>console.log('Failure',err))
+            })
+          }
+
+    </script>
 </body>
 
 </html>
